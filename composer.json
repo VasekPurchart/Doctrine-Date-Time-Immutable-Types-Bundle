@@ -15,7 +15,8 @@
 		"symfony/config": "~2.6",
 		"symfony/dependency-injection": "~2.6",
 		"symfony/http-kernel": "~2.6",
-		"symfony/yaml": "~2.6"
+		"symfony/yaml": "~2.6",
+		"vasek-purchart/doctrine-date-time-immutable-types": "~0.1.0"
 	},
 	"require-dev": {
 		"consistence/coding-standard": "0.6",
