@@ -9,5 +9,18 @@
 			"email": "me@vasekpurchart.cz",
 			"homepage": "http://vasekpurchart.cz"
 		}
-	]
+	],
+	"require": {
+		"php": "~5.5"
+	},
+	"require-dev": {
+		"consistence/coding-standard": "0.6",
+		"jakub-onderka/php-console-highlighter": "0.3.2",
+		"jakub-onderka/php-parallel-lint": "0.9",
+		"phing/phing": "2.11.0",
+		"phpunit/phpunit": "4.7.3"
+	},
+	"config": {
+		"bin-dir": "bin"
+	}
 }
