@@ -112,11 +112,11 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit_Framework_Tes
 		$containerBuilder = new ContainerBuilder();
 		$extension = new DoctrineDateTimeImmutableTypesExtension();
 
-		$containerBuilderOriginal = clone $containerBuilder;
+		$containerBuilderOriginal = serialize($containerBuilder);
 
 		$extension->load([], $containerBuilder);
 
-		$this->assertEquals($containerBuilderOriginal, $containerBuilder);
+		$this->assertEquals($containerBuilderOriginal, serialize($containerBuilder));
 	}
 
 }
