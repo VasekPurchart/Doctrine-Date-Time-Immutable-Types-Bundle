@@ -12,7 +12,7 @@ use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateTimeImmutableType;
 use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateTimeTzImmutableType;
 use VasekPurchart\Doctrine\Type\DateTimeImmutable\TimeImmutableType;
 
-class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit_Framework_TestCase
+class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\TestCase
 {
 
 	/** @var string[][] */
@@ -49,7 +49,7 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit_Framework_Tes
 		$containerBuilder = new ContainerBuilder();
 		$extension = new DoctrineDateTimeImmutableTypesExtension();
 
-		$this->setExpectedException(\VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection\DoctrineBundleRequiredException::class);
+		$this->expectException(\VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection\DoctrineBundleRequiredException::class);
 		$extension->prepend($containerBuilder);
 	}
 
