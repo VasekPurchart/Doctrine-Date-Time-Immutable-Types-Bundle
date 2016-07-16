@@ -86,9 +86,9 @@ doctrine_date_time_immutable_types:
 Usage
 -----
 
-If you are using `replace` method of registration, you don't need to change any mappings.
+If you are using the `replace` option, you don't need to change any property mappings of your entities.
 
-If you are using `add` method of registration (default), you only have to suffix your fields with `_immutable`:
+If you are using the `add` option (default), you just have to suffix your field types with `_immutable`:
 
 ```php
 <?php
