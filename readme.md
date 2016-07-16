@@ -73,8 +73,7 @@ Configuration structure with listed default values:
 ```yaml
 # app/config/config.yml
 doctrine_date_time_immutable_types:
-    # Choose under which names the types will be registered.
-    register:             add # One of "add"; "replace"; "add_and_replace"; "none"
+    register: add # One of "add"; "replace"; "add_and_replace"; "none"
 ```
 
 `register`
