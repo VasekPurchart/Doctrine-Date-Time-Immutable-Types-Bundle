@@ -67,7 +67,7 @@ class DoctrineDateTimeImmutableTypesExtension
 	 */
 	public function load(array $configs, ContainerBuilder $container)
 	{
-
+		// nothing to do
 	}
 
 	/**
