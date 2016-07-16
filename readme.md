@@ -68,8 +68,6 @@ You can prevent this behaviour by returning a new instance (cloning) or using [`
 Configuration
 -------------
 
-Configuration structure with listed default values:
-
 ```yaml
 # app/config/config.yml
 doctrine_date_time_immutable_types:
