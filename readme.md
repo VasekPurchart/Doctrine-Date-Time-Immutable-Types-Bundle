@@ -14,36 +14,6 @@ All Doctrine date/time based types are using `DateTime` instances, which are mut
 ```php
 <?php
 
-use Doctrine\ORM\Mapping as ORM;
-
-/**
- * @ORM\Entity()
- */
-class LogRow
-{
-
-	// ...
-
-	/**
-	 * @ORM/Column(type="datetime")
-	 * @var \DateTime
-	 */
-	private $createdDate;
-
-	/**
-	 * @return \DateTime
-	 */
-	public function getCreatedDate()
-	{
-		return $this->createdDate;
-	}
-
-}
-```
-
-```php
-<?php
-
 // created date might be modified
 // even if this was not intended by the creator
 // (there is no "setter" method for this on the entity)
