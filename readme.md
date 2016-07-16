@@ -78,7 +78,7 @@ doctrine_date_time_immutable_types:
 ```
 
 `register`
-  * `add` - add types as new - suffixed with `_immutable` (e.g. `datetime_immutable`)
+  * `add` - add new Doctrine field types - suffixed with `_immutable` (e.g. `datetime_immutable`)
   * `replace` - add types with the same name as original, replacing them (e.g. `datetime`)
   * `add_and_replace` - combines both previous options (e.g. both `datetime` and `datetime_immutable`)
   * `none` - does not register any types - can be useful for temporary disabling the registration
