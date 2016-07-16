@@ -5,9 +5,9 @@ Doctrine DateTimeImmutable Types Bundle
 [`vasek-purchart/doctrine-date-time-immutable-types`](https://github.com/VasekPurchart/Doctrine-Date-Time-Immutable-Types),  
 if you are not using Symfony, follow instructions there.
 
-### Why do I want to use this?
+### Why would I want to use this?
 
-All Doctrine date/time based types are using `DateTime` instances, which are mutable. This can lead very easily to breaking encapsulation and therefore bugs. For two reasons:
+All Doctrine date/time based types are using `DateTime` instances, which are mutable. This can very easily lead to problems - for two reasons:
 
 1) You accidentally modify a date when you are doing some computation on it:
 
