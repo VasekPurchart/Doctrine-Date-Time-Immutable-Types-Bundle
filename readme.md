@@ -1,7 +1,7 @@
 Doctrine DateTimeImmutable Types Bundle
 =======================================
 
-> This is a Symfony Bundle providing integration for the standalone package  
+This is a Symfony Bundle providing integration for the standalone package  
 [`vasek-purchart/doctrine-date-time-immutable-types`](https://github.com/VasekPurchart/Doctrine-Date-Time-Immutable-Types),  
 if you are not using Symfony, follow instructions there.
 
