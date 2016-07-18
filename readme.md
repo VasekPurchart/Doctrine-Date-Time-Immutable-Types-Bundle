@@ -5,9 +5,9 @@ Doctrine DateTimeImmutable Types Bundle
 [`vasek-purchart/doctrine-date-time-immutable-types`](https://github.com/VasekPurchart/Doctrine-Date-Time-Immutable-Types),  
 if you are not using Symfony, follow instructions there.
 
-### Why do I want to use this?
+### Why would I want to use this?
 
-All Doctrine date/time based types are using `DateTime` instances, which are mutable. This can lead very easily to breaking encapsulation and therefore bugs. For two reasons:
+All Doctrine date/time based types are using `DateTime` instances, which are mutable. This can lead to breaking encapsulation and therefore bugs. For two reasons:
 
 1) You accidentally modify a date when you are doing some computation on it:
 
@@ -74,21 +74,21 @@ Configuration structure with listed default values:
 # app/config/config.yml
 doctrine_date_time_immutable_types:
     # Choose under which names the types will be registered.
-    register:             add # One of "add"; "replace"; "add_and_replace"; "none"
+    register: add # One of "add"; "replace"; "add_and_replace"; "none"
 ```
 
 `register`
   * `add` - add types as new - suffixed with `_immutable` (e.g. `datetime_immutable`)
-  * `replace` - add types with the same name as original, replacing them (e.g. `datetime`)
-  * `add_and_replace` - combines both previous options (e.g. both `datetime` and `datetime_immutable`)
-  * `none` - does not register any types - can be useful for temporary disabling the registration
+  * `replace` - replace the original types `date`, `time`, `datetime`, `datetimetz`, i.e. making them immutable
+  * `add_and_replace` - combine both previous options (e.g. both `datetime` and `datetime_immutable`)
+  * `none` - do not register any types - useful for temporary disabling the registration
 
 Usage
 -----
 
-If you are using `replace` method of registration, you don't need to change any mappings.
+If you are using the `replace` option, you don't need to change any property mappings of your entities.
 
-If you are using `add` method of registration (default), you only have to suffix your fields with `_immutable`:
+If you are using the `add` option (default), you only have to suffix your field types with `_immutable`:
 
 ```php
 <?php
