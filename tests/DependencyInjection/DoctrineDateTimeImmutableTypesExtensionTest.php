@@ -61,6 +61,9 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 
 	/**
 	 * @dataProvider registrationTypesProvider
+	 *
+	 * @param string $register
+	 * @param string[][] $expectedTypes
 	 */
 	public function testRegisterByConfig($register, $expectedTypes)
 	{
