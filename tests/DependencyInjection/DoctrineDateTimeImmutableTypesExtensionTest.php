@@ -15,7 +15,7 @@ use VasekPurchart\Doctrine\Type\DateTimeImmutable\TimeImmutableType;
 class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\TestCase
 {
 
-	/** @var string[][] */
+	/** @var string[] */
 	private static $immutableTypes = [
 		DateImmutableType::NAME => DateImmutableType::class,
 		DateTimeImmutableType::NAME => DateTimeImmutableType::class,
@@ -23,7 +23,7 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 		TimeImmutableType::NAME => TimeImmutableType::class,
 	];
 
-	/** @var string[][] */
+	/** @var string[] */
 	private static $replaceTypes = [
 		Type::DATE => DateImmutableType::class,
 		Type::DATETIME => DateTimeImmutableType::class,
@@ -32,7 +32,7 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 	];
 
 	/**
-	 * @return string[][]
+	 * @return mixed[]
 	 */
 	public function registrationTypesProvider()
 	{
@@ -63,7 +63,7 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 	 * @dataProvider registrationTypesProvider
 	 *
 	 * @param string $register
-	 * @param string[][] $expectedTypes
+	 * @param string[] $expectedTypes
 	 */
 	public function testRegisterByConfig($register, $expectedTypes)
 	{
@@ -75,7 +75,7 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 
 	/**
 	 * @param mixed[] $extensionConfig
-	 * @return \Doctrine\DBAL\Types\Type[] format: type name (string) => type class)
+	 * @return string[] format: type name (string) => type class)
 	 */
 	private function getDoctrineTypesConfig(array $extensionConfig)
 	{
@@ -99,8 +99,8 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 	}
 
 	/**
-	 * @param \Doctrine\DBAL\Types\Type[] $expectedTypes format: type name (string) => type class)
-	 * @param \Doctrine\DBAL\Types\Type[] $actualTypes format: type name (string) => type class)
+	 * @param string[] $expectedTypes format: type name (string) => type class)
+	 * @param string[] $actualTypes format: type name (string) => type class)
 	 */
 	private function assertTypes(array $expectedTypes, array $actualTypes)
 	{
