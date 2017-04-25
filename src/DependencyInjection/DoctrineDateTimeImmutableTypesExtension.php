@@ -16,6 +16,7 @@ class DoctrineDateTimeImmutableTypesExtension
 
 	const DOCTRINE_BUNDLE_ALIAS = 'doctrine';
 
+	/** @var string[] */
 	private static $types = [
 		DateImmutableType::class,
 		DateTimeImmutableType::class,

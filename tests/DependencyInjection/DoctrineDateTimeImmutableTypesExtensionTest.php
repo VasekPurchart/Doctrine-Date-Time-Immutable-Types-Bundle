@@ -2,8 +2,8 @@
 
 namespace VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection;
 
-use Doctrine\DBAL\Types\Type;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\DoctrineExtension;
+use Doctrine\DBAL\Types\Type;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
