@@ -6,9 +6,7 @@ namespace VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection
 
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\DoctrineExtension;
 use Doctrine\DBAL\Types\Type;
-
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-
 use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateImmutableType;
 use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateTimeImmutableType;
 use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateTimeTzImmutableType;

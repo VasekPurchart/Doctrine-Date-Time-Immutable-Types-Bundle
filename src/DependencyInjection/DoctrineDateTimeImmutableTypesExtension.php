@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-
 use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateImmutableType;
 use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateTimeImmutableType;
 use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateTimeTzImmutableType;
