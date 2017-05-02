@@ -30,10 +30,7 @@ class LogRow
 	 */
 	private $createdDate;
 
-	/**
-	 * @return \DateTime
-	 */
-	public function getCreatedDate()
+	public function getCreatedDate(): DateTime
 	{
 		return $this->createdDate;
 	}
@@ -109,10 +106,7 @@ class LogRow
 	 */
 	private $createdDate;
 
-	/**
-	 * @return \DateTimeImmutable
-	 */
-	public function getCreatedDate()
+	public function getCreatedDate(): DateTimeImmutable
 	{
 		return $this->createdDate;
 	}

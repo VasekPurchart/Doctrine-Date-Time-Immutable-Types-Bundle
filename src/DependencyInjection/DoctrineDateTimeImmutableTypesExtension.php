@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -76,7 +78,7 @@ class DoctrineDateTimeImmutableTypesExtension
 	 * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
 	 * @return \VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection\Configuration
 	 */
-	public function getConfiguration(array $config, ContainerBuilder $container)
+	public function getConfiguration(array $config, ContainerBuilder $container): Configuration
 	{
 		return new Configuration(
 			$this->getAlias()

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection;
 
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\DoctrineExtension;
@@ -34,7 +36,7 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 	/**
 	 * @return mixed[]
 	 */
-	public function registrationTypesProvider()
+	public function registrationTypesProvider(): array
 	{
 		return [
 			[Configuration::REGISTER_ADD, self::$immutableTypes],
@@ -65,7 +67,7 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 	 * @param string $register
 	 * @param string[] $expectedTypes
 	 */
-	public function testRegisterByConfig($register, $expectedTypes)
+	public function testRegisterByConfig(string $register, array $expectedTypes)
 	{
 		$types = $this->getDoctrineTypesConfig([
 			Configuration::PARAMETER_REGISTER => $register,
@@ -77,7 +79,7 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 	 * @param mixed[] $extensionConfig
 	 * @return string[] format: type name (string) => type class)
 	 */
-	private function getDoctrineTypesConfig(array $extensionConfig)
+	private function getDoctrineTypesConfig(array $extensionConfig): array
 	{
 		$doctrineExtension = new DoctrineExtension();
 		$extension = new DoctrineDateTimeImmutableTypesExtension();

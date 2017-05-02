@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -17,18 +19,12 @@ class Configuration implements \Symfony\Component\Config\Definition\Configuratio
 	/** @var string */
 	private $rootNode;
 
-	/**
-	 * @param string $rootNode
-	 */
-	public function __construct($rootNode)
+	public function __construct(string $rootNode)
 	{
 		$this->rootNode = $rootNode;
 	}
 
-	/**
-	 * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder
-	 */
-	public function getConfigTreeBuilder()
+	public function getConfigTreeBuilder(): TreeBuilder
 	{
 		$treeBuilder = new TreeBuilder();
 		$rootNode = $treeBuilder->root($this->rootNode);
