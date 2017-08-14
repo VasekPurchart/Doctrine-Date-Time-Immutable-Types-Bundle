@@ -4,11 +4,12 @@ declare(strict_types = 1);
 
 namespace VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection;
 
+use Doctrine\DBAL\Types\DateImmutableType;
+use Doctrine\DBAL\Types\DateTimeImmutableType;
+use Doctrine\DBAL\Types\DateTimeTzImmutableType;
+use Doctrine\DBAL\Types\TimeImmutableType;
+use Doctrine\DBAL\Types\Type;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateImmutableType;
-use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateTimeImmutableType;
-use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateTimeTzImmutableType;
-use VasekPurchart\Doctrine\Type\DateTimeImmutable\TimeImmutableType;
 
 class DoctrineDateTimeImmutableTypesExtension
 	extends \Symfony\Component\HttpKernel\DependencyInjection\Extension
@@ -19,10 +20,10 @@ class DoctrineDateTimeImmutableTypesExtension
 
 	/** @var string[] */
 	private static $types = [
-		DateImmutableType::class,
-		DateTimeImmutableType::class,
-		DateTimeTzImmutableType::class,
-		TimeImmutableType::class,
+		Type::DATE_IMMUTABLE => DateImmutableType::class,
+		Type::DATETIME_IMMUTABLE => DateTimeImmutableType::class,
+		Type::DATETIMETZ_IMMUTABLE => DateTimeTzImmutableType::class,
+		Type::TIME_IMMUTABLE => TimeImmutableType::class,
 	];
 
 	public function prepend(ContainerBuilder $container)
@@ -35,20 +36,10 @@ class DoctrineDateTimeImmutableTypesExtension
 		$types = [];
 
 		if (in_array($config[Configuration::PARAMETER_REGISTER], [
-			Configuration::REGISTER_ADD,
-			Configuration::REGISTER_ADD_AND_REPLACE,
-		])) {
-			foreach (self::$types as $type) {
-				$types[$type::NAME] = $type;
-			}
-		}
-
-		if (in_array($config[Configuration::PARAMETER_REGISTER], [
 			Configuration::REGISTER_REPLACE,
-			Configuration::REGISTER_ADD_AND_REPLACE,
 		])) {
-			foreach (self::$types as $type) {
-				$types[str_replace('_immutable', '', $type::NAME)] = $type;
+			foreach (self::$types as $name => $type) {
+				$types[str_replace('_immutable', '', $name)] = $type;
 			}
 		}
 

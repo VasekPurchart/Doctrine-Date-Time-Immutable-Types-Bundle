@@ -1,11 +1,11 @@
 Doctrine DateTimeImmutable Types Bundle
 =======================================
 
-> This is a Symfony Bundle providing integration for the standalone package  
-[`vasek-purchart/doctrine-date-time-immutable-types`](https://github.com/VasekPurchart/Doctrine-Date-Time-Immutable-Types),  
-if you are not using Symfony, follow instructions there.
+> In [Doctrine DBAL 2.6](https://github.com/doctrine/dbal/releases/tag/v2.6.0) immutable DateTime types were added, so this bundle no longer uses [custom DateTime types implementation](https://github.com/VasekPurchart/Doctrine-Date-Time-Immutable-Types), but rather offers control, how the immutable types are registered, offering the possibility to replace the original DateTime types.
 
-### Why would I want to use this?
+> If you cannot upgrade to Doctrine DBAL 2.6 use [1.0 version](https://github.com/VasekPurchart/Doctrine-Date-Time-Immutable-Types-Bundle/tree/1.0) of this bundle, which uses the [`vasek-purchart/doctrine-date-time-immutable-types`](https://github.com/VasekPurchart/Doctrine-Date-Time-Immutable-Types) custom DateTime types implementation.
+
+### Why would I want to use immutable types?
 
 All Doctrine date/time based types are using `DateTime` instances, which are mutable. This can lead to breaking encapsulation and therefore bugs. For two reasons:
 
@@ -60,7 +60,7 @@ $entityManager->persist($product);
 $entityManager->flush();
 ```
 
-You can prevent this behaviour by returning a new instance (cloning) or using [`DateTimeImmutable`](http://php.net/manual/en/class.datetimeimmutable.php) (which returns a new instance when modified). `DateTimeImmutable` is available since PHP 5.5, but Doctrine has not adopted it yet, because it would introduce a [BC break](https://github.com/doctrine/dbal/issues/1882). Maybe it will be supported in Doctrine 3.0, but until then you might want to use this package.
+You can prevent this behaviour by returning a new instance (cloning) or using [`DateTimeImmutable`](http://php.net/manual/en/class.datetimeimmutable.php) (which returns a new instance when modified).
 
 Configuration
 -------------
@@ -71,14 +71,12 @@ Configuration structure with listed default values:
 # app/config/config.yml
 doctrine_date_time_immutable_types:
     # Choose under which names the types will be registered.
-    register: add # One of "add"; "replace"; "add_and_replace"; "none"
+    register: add # One of "add"; "replace"
 ```
 
 `register`
-  * `add` - add types as new - suffixed with `_immutable` (e.g. `datetime_immutable`)
+  * `add` - add types as new - suffixed with `_immutable` (e.g. `datetime_immutable`) - this is already done by DBAL from version 2.6
   * `replace` - replace the original types `date`, `time`, `datetime`, `datetimetz`, i.e. making them immutable
-  * `add_and_replace` - combine both previous options (e.g. both `datetime` and `datetime_immutable`)
-  * `none` - do not register any types - useful for temporary disabling the registration
 
 Usage
 -----

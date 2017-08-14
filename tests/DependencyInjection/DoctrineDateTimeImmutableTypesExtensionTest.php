@@ -5,23 +5,15 @@ declare(strict_types = 1);
 namespace VasekPurchart\DoctrineDateTimeImmutableTypesBundle\DependencyInjection;
 
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\DoctrineExtension;
+use Doctrine\DBAL\Types\DateImmutableType;
+use Doctrine\DBAL\Types\DateTimeImmutableType;
+use Doctrine\DBAL\Types\DateTimeTzImmutableType;
+use Doctrine\DBAL\Types\TimeImmutableType;
 use Doctrine\DBAL\Types\Type;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateImmutableType;
-use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateTimeImmutableType;
-use VasekPurchart\Doctrine\Type\DateTimeImmutable\DateTimeTzImmutableType;
-use VasekPurchart\Doctrine\Type\DateTimeImmutable\TimeImmutableType;
 
 class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\TestCase
 {
-
-	/** @var string[] */
-	private static $immutableTypes = [
-		DateImmutableType::NAME => DateImmutableType::class,
-		DateTimeImmutableType::NAME => DateTimeImmutableType::class,
-		DateTimeTzImmutableType::NAME => DateTimeTzImmutableType::class,
-		TimeImmutableType::NAME => TimeImmutableType::class,
-	];
 
 	/** @var string[] */
 	private static $replaceTypes = [
@@ -37,10 +29,8 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 	public function registrationTypesProvider(): array
 	{
 		return [
-			[Configuration::REGISTER_ADD, self::$immutableTypes],
+			[Configuration::REGISTER_ADD, []],
 			[Configuration::REGISTER_REPLACE, self::$replaceTypes],
-			[Configuration::REGISTER_ADD_AND_REPLACE, array_merge(self::$immutableTypes, self::$replaceTypes)],
-			[Configuration::REGISTER_NONE, []],
 		];
 	}
 
@@ -56,7 +46,7 @@ class DoctrineDateTimeImmutableTypesExtensionTest extends \PHPUnit\Framework\Tes
 	public function testDefaultRegisterImmutable()
 	{
 		$types = $this->getDoctrineTypesConfig([]);
-		$this->assertTypes(self::$immutableTypes, $types);
+		$this->assertTypes([], $types);
 	}
 
 	/**

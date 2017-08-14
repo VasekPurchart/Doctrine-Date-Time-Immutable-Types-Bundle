@@ -12,8 +12,6 @@ class Configuration implements \Symfony\Component\Config\Definition\Configuratio
 	const PARAMETER_REGISTER = 'register';
 
 	const REGISTER_ADD = 'add';
-	const REGISTER_ADD_AND_REPLACE = 'add_and_replace';
-	const REGISTER_NONE = 'none';
 	const REGISTER_REPLACE = 'replace';
 
 	/** @var string */
@@ -36,8 +34,6 @@ class Configuration implements \Symfony\Component\Config\Definition\Configuratio
 					->values([
 						self::REGISTER_ADD,
 						self::REGISTER_REPLACE,
-						self::REGISTER_ADD_AND_REPLACE,
-						self::REGISTER_NONE,
 					])
 					->defaultValue(self::REGISTER_ADD)
 					->end()
